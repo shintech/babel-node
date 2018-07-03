@@ -1,0 +1,44 @@
+{
+  "name": "babel-node",
+  "version": "0.0.1",
+  "main": "dist/index.js",
+  "license": "MIT",
+  "scripts": {
+    "start": "node dist/index.js",
+    "dev": "NODE_ENV=development PORT=8000 TZ='America/Chicago' nodemon index.js",
+    "test": "NODE_ENV=test PORT=8001 TZ='America/Chicago' mocha dist/test -t 10000",
+    "build": "babel -d dist src",
+    "watch": "babel --watch -d dist src --ignore src/frontend | ts '[%Y-%m-%d %H:%M:%S]'"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-polyfill": "^6.26.0",
+    "babel-preset-env": "^1.6.1"
+  },
+  "standard": {
+    "globals": [
+      "it",
+      "describe",
+      "beforeEach",
+      "afterEach",
+      "before",
+      "after",
+      "Backbone",
+      "_",
+      "$",
+      "csrf",
+      "Storage",
+      "sessionStorage",
+      "pug",
+      "fetch",
+      "React",
+      "__INITIAL_STATE__"
+    ]
+  },
+  "engines": {
+    "node": ">=6"
+  },
+  "dependencies": {
+    "chalk": "^2.4.1"
+  }
+}
